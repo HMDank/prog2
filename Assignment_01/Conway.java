@@ -1,3 +1,5 @@
+package Assignment_01;
+
 class Conway {
     public static void main(String[] args) {
         int[][] board;
