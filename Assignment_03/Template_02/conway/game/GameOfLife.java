@@ -3,7 +3,10 @@ package conway.game;
 import conway.component.CellType;;
 
 /**
- * Mian class for Conway's Game of Life.
+ * Main class for Conway's Game of Life.
+ *
+ * @author Minh Dang Hoang
+ * @version 2026 April 27
  */
 public class GameOfLife {
     private CellType[][] generation;
