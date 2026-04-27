@@ -2,10 +2,18 @@ package conway.game;
 
 import conway.component.CellType;;
 
+/**
+ * Mian class for Conway's Game of Life.
+ */
 public class GameOfLife {
     private CellType[][] generation;
     private long iteration;
 
+    /**
+     * Game of life's canvas
+     *
+     * @param size the size of the game
+     */
     public GameOfLife(int size) {
         this.generation = new CellType[size][size];
         iteration = 0L;
@@ -18,6 +26,13 @@ public class GameOfLife {
         }
     }
 
+    /**
+     * Counts the number of living neigbors surronding the given cell.
+     *
+     * @param x The x coordinate of the cell
+     * @param y The y coordinate of the cell
+     * @return the number of living neigbors surronding the given cell
+     */
     public int countLivingNeighbors(int x, int y) {
         int count = 0;
         for (int index_x = -1; index_x <= 1; index_x++) {
@@ -33,6 +48,9 @@ public class GameOfLife {
         return count;
     }
 
+    /**
+     * Calculate the next Generation for the entire board.
+     */
     public void calculateNextGeneration() {
         iteration++;
         CellType[][] nextGeneration = new CellType[generation.length][generation[0].length];
@@ -60,24 +78,21 @@ public class GameOfLife {
         generation = nextGeneration;
     }
 
+    /**
+     * Getter constructor to get the current generation of the class.
+     *
+     * @return the current generation
+     */
     public CellType[][] getGeneration() {
         return this.generation;
     }
 
+    /**
+     * Getter constructor to get the current Iteration of the class.
+     *
+     * @return the current Iteration
+     */
     public Long getIteration() {
         return iteration;
-    }
-
-    public String toString() {
-        String result = "";
-        for (int i = 0; i < generation.length; i++) {
-            for (int j = 0; j < generation[i].length; j++) {
-                result += generation[i][j];
-                if (j + 1 != generation.length)
-                    result += " ";
-            }
-            result += "\n";
-        }
-        return result;
     }
 }
